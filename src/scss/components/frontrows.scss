@@ -1,0 +1,6 @@
+@use '../util' as *;
+
+.front-row {
+  height: rem(300);
+  background-color: var(--white);
+}

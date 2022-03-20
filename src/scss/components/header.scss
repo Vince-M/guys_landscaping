@@ -1,0 +1,223 @@
+@use '../util' as *;
+
+.header {
+  // display: flex;
+  // align-items: center;
+
+  @include breakpoint-down (small) {
+    height: rem(90);
+  }
+
+  .hamburger {
+
+    @include breakpoint-up (large) {
+      visibility: hidden;
+    }
+  }
+
+  // Hamburger Open Styles
+  &.open {
+
+    .header__toggle {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+  
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+  
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    // position: fixed;
+    // position: absolute;
+    top: rem(90);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--darkgreen80);
+    z-index: 999;
+
+    @include breakpoint-up (medium) {
+      top: rem(110);
+    }
+
+    @include breakpoint-down (small) {
+      position: absolute;
+    }
+  }
+
+  &__logo {
+    height: rem(83);
+    margin: rem(15) 0;
+    display: block;
+
+    & img {
+      
+      @include breakpoint-down (small) {
+        width: 80%;
+      }
+    }
+  }
+
+  // &__section {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  // }
+
+  &__toggle { // Mobile menu toggle
+    margin-right: 20px;
+
+    > span {
+      display: block;
+      width: rem(26);
+      height: rem(2);
+      background-color: var(--darkgreen);
+      transition: all 300ms ease-in-out;
+      transform-origin: rem(3) rem(1);
+
+      &:not(:last-child) {
+        margin-bottom: rem(5);
+      }
+    }
+  }
+}
+
+
+
+// .nav-toggle {
+//   display: none;
+
+//   @include breakpoint-down(small) {
+//     cursor: pointer;
+//     border: 0;
+//     width: rem(48);
+//     height: rem(48);
+//     padding: 0em;
+//     border-radius: 50%;
+//     background: var(--black);
+//     color: var(--white);
+//     transition: opacity 250ms ease;
+
+//     position: absolute;
+//     right: 0;
+//   }
+// }
+
+// .nav-toggle:focus,
+// .nav-toggle:hover {
+//     opacity: .75;
+// }
+
+// .nav--visible {
+
+//   @include breakpoint-down(small) {
+//     visibilty: visible;
+//     height: auto;
+//     position: relative;
+//   }
+// }
+
+.nav {
+  height: auto;
+  position: relative;
+
+  &__link {
+    color: var(--darkgreen);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: rem(16);
+    font-weight: 500;
+
+    @include breakpoint-down(medium) {
+      margin-top: rem(20);
+    }
+
+    &:hover,
+    &:active {
+      color: var(--blue);
+    }
+
+    @include breakpoint-down(small) {
+      margin-top: 20px;
+    }
+
+    // &--mobile {
+    //   @include breakpoint-down(medium) {
+    //     color: var(--darkgreen);
+    //     font-family: var(--font-heading);
+    //     font-size: 1rem;
+    //     font-weight: 500;
+    //     text-decoration: none;
+    //     text-transform: uppercase;
+    //     padding-top: rem(36);
+    //   }
+
+    }
+
+    // &:hover,
+    // &:focus {
+    //   color: var(--darkred);
+    //   font-weight: 700;
+    //   opacity: .65;
+    //   transition: color 350ms ease-in-out;
+    // }
+  // }
+
+  &__item {
+    margin: 0 0 0 rem(24);
+
+    @include breakpoint-down(medium) {
+      padding: rem(20) 0;
+      margin: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    margin: 0;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    top: rem(90);
+    // padding: rem(20) 0 rem(40) 0;
+    z-index: 999;
+    margin: 0 auto;
+
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+
+    &--open {
+      position: absolute;
+      display: block;
+      background-color: white;
+      width: calc(100% - rem(48));
+      left: 50%;
+      transform: translate(-50%);
+      height: auto;
+      text-align: center;
+      top: rem(90);
+      padding: rem(20) 0 rem(40) 0;
+      z-index: 999;
+      margin: 0 auto;
+      border-radius: 0 0 rem(5) rem(5);
+
+      @include breakpoint-up(medium) {
+        top: rem(110);
+      }
+    }
+  }
+}
+

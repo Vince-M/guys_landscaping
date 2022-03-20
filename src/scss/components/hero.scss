@@ -1,0 +1,31 @@
+@use '../util' as *;
+
+.hero {
+  width: 100%;
+
+  &__headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    z-index: 900;
+    width: 100%;
+    height: rem(400);
+  }
+
+  h1 {
+    color: var(--white);
+    font-size: rem(64);
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 1px 1px 2px var(--black);
+    margin-bottom: rem(15);
+
+    @include breakpoint-down(small) {
+      font-size: rem(42);
+    }
+  }
+
+}

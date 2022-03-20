@@ -1,0 +1,95 @@
+@use '../util' as *;
+
+.frontpg {
+
+  &__main {
+      position: relative;
+      top: rem(-50);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      @include breakpoint-down(medium) {
+        top: rem(20);
+      }
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    @include breakpoint-down(small) {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      border: 5px solid var(--white);
+    }
+
+  }
+
+  &__text {
+    display: block;
+    margin: 0 5%;
+
+    @include breakpoint-down(small) {
+      margin: 0 rem(10);
+    }
+
+    p {
+      width: 80%;
+    }
+
+    &--top {
+      position: relative;
+      top: rem(48);
+      margin-bottom: rem(32);
+
+      @include breakpoint-down(small) {
+        top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      line-height: 1;
+      
+
+      @include breakpoint-down(medium) {
+        margin-top: 0;
+        font-size: rem(40);
+      }
+    }
+  }
+
+
+}
+
+.frontpg__section.frontpg_section--right {
+  flex-direction: row-reverse;
+}
+
+.index {
+  
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &--text {
+      position: relative;
+      margin-left: 700px;
+      display: block;
+    }
+  }
+
+  &__left img {
+    position: absolute;
+    top: -6.25rem;
+  }
+}
+
+
